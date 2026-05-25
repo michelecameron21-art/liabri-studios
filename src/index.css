@@ -1,0 +1,141 @@
+:root {
+  --navy: #0B1A3D;
+  --navy-deep: #06122B;
+  --navy-mist: #1A2B55;
+  --gold: #E8B448;
+  --gold-light: #F2C969;
+  --gold-deep: #B98A26;
+  --cream: #F8F1DD;
+  --text-light: #F8F1DD;
+  --text-dim: rgba(248, 241, 221, 0.78);
+  --text-dim-strong: rgba(248, 241, 221, 0.55);
+
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Nunito', system-ui, -apple-system, sans-serif;
+
+  --max-w: 1180px;
+  --radius-lg: 24px;
+  --radius-xl: 36px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--navy-deep);
+  color: var(--text-light);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-variation-settings: 'opsz' 144, 'SOFT' 50;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; display: block; }
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; }
+
+.btn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy-deep);
+  font-family: var(--font-sans);
+  font-weight: 800;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .2s ease;
+  box-shadow: 0 4px 0 var(--gold-deep), 0 12px 28px rgba(0,0,0,0.25);
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 6px 0 var(--gold-deep), 0 14px 30px rgba(0,0,0,0.3); }
+.btn:active { transform: translateY(1px); box-shadow: 0 2px 0 var(--gold-deep); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--gold-light);
+  border: 1.5px solid rgba(232, 180, 72, 0.6);
+  box-shadow: none;
+}
+.btn-ghost:hover {
+  background: rgba(232, 180, 72, 0.08);
+  border-color: var(--gold-light);
+}
+
+.kicker {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 1rem;
+}
+
+.section {
+  padding: clamp(2.5rem, 5.5vw, 4.5rem) 0;
+  position: relative;
+}
+
+.section h2 {
+  font-size: clamp(2rem, 4.8vw, 3.4rem);
+  margin-bottom: 1rem;
+}
+
+.section .lede {
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  color: var(--text-dim);
+  max-width: 60ch;
+  margin-bottom: 2.5rem;
+}
+
+/* Twinkling star background */
+.starfield {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.6;
+}
+.starfield::before, .starfield::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, #FFD86B 99%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 27% 64%, rgba(255,216,107,0.75) 99%, transparent 100%),
+    radial-gradient(1px 1px at 44% 32%, rgba(255,255,255,0.7) 99%, transparent 100%),
+    radial-gradient(1.2px 1.2px at 67% 12%, #FFD86B 99%, transparent 100%),
+    radial-gradient(1px 1px at 81% 45%, rgba(255,255,255,0.55) 99%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 93% 78%, #FFD86B 99%, transparent 100%),
+    radial-gradient(1px 1px at 8% 88%, rgba(255,255,255,0.7) 99%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 55% 86%, rgba(232,180,72,0.7) 99%, transparent 100%),
+    radial-gradient(1px 1px at 37% 8%, #FFFFFF 99%, transparent 100%),
+    radial-gradient(1px 1px at 73% 60%, rgba(255,255,255,0.55) 99%, transparent 100%);
+  background-size: 720px 720px, 540px 540px, 600px 600px, 460px 460px, 380px 380px, 700px 700px, 560px 560px, 480px 480px, 420px 420px, 520px 520px;
+  background-position: 0 0;
+  animation: twinkle 8s ease-in-out infinite alternate;
+}
+.starfield::after { animation-delay: 4s; opacity: 0.55; }
+@keyframes twinkle { from { opacity: 0.4; } to { opacity: 1; } }
+
+/* Subtle gold underline accent */
+.accent-line {
+  display: block;
+  width: 72px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 1.5rem;
+}
