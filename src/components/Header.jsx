@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { ChevronDown } from 'lucide-react'
 import { worlds } from '../data/worlds'
 
@@ -28,7 +29,7 @@ function Header() {
         maxWidth: 1180, margin: '0 auto',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       }}>
-        <a href="#top" aria-label="Liabri Studios home" style={{ display: 'flex', alignItems: 'center' }}>
+        <Link to="/" aria-label="Liabri Studios home" style={{ display: 'flex', alignItems: 'center' }}>
           <img
             src="/assets/liabri-logo.png"
             alt="Liabri Studios"
@@ -39,33 +40,57 @@ function Header() {
               filter: 'drop-shadow(0 2px 12px rgba(232,180,72,0.25))',
             }}
           />
-        </a>
+        </Link>
         <nav style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
           <NavDropdown
             label="Worlds"
-            href="#worlds"
-            items={worlds.map(w => ({ label: w.series, href: w.teaser ? w.externalUrl : `#${w.id}`, external: !!w.teaser }))}
+            anchor="worlds"
+            items={worlds.map(w => ({
+              label: w.series,
+              href: w.teaser ? w.externalUrl : `/#${w.id}`,
+              external: !!w.teaser,
+            }))}
           />
           <NavDropdown
             label="About"
-            href="#about"
+            anchor="about"
             items={[
-              { label: 'About Liabri Studios', href: '#about' },
-              { label: 'Contact', href: '#contact' },
+              { label: 'About Liabri Studios', href: '/#about' },
+              { label: 'Contact', href: '/#contact' },
             ]}
           />
-          <NavLink href="#contact">Contact</NavLink>
+          <SmartLink to="/blog">Blog</SmartLink>
+          <SmartLink to="/#contact">Contact</SmartLink>
         </nav>
       </div>
     </header>
   )
 }
 
-function NavLink({ href, children }) {
+// Handles both in-page anchors (/#contact) and route links (/blog).
+function SmartLink({ to, children }) {
   const [hover, setHover] = useState(false)
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  function onClick(e) {
+    if (to.startsWith('/#')) {
+      const id = to.slice(2)
+      if (location.pathname === '/') {
+        e.preventDefault()
+        const el = document.getElementById(id)
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      } else {
+        e.preventDefault()
+        navigate(`/#${id}`)
+      }
+    }
+  }
+
   return (
-    <a
-      href={href}
+    <Link
+      to={to}
+      onClick={onClick}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
@@ -78,14 +103,16 @@ function NavLink({ href, children }) {
       }}
     >
       {children}
-    </a>
+    </Link>
   )
 }
 
-function NavDropdown({ label, href, items }) {
+function NavDropdown({ label, anchor, items }) {
   const [open, setOpen] = useState(false)
   const ref = useRef(null)
   const closeTimer = useRef(null)
+  const location = useLocation()
+  const navigate = useNavigate()
 
   function scheduleClose() {
     closeTimer.current = setTimeout(() => setOpen(false), 140)
@@ -94,7 +121,6 @@ function NavDropdown({ label, href, items }) {
     if (closeTimer.current) clearTimeout(closeTimer.current)
   }
 
-  // Close on outside click for mobile/tap users
   useEffect(() => {
     function onDocClick(e) {
       if (ref.current && !ref.current.contains(e.target)) setOpen(false)
@@ -102,6 +128,21 @@ function NavDropdown({ label, href, items }) {
     document.addEventListener('click', onDocClick)
     return () => document.removeEventListener('click', onDocClick)
   }, [])
+
+  function onLabelClick(e) {
+    if (window.matchMedia('(hover: none)').matches && !open) {
+      e.preventDefault()
+      setOpen(true)
+      return
+    }
+    e.preventDefault()
+    if (location.pathname === '/') {
+      const el = document.getElementById(anchor)
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    } else {
+      navigate(`/#${anchor}`)
+    }
+  }
 
   return (
     <div
@@ -111,14 +152,8 @@ function NavDropdown({ label, href, items }) {
       onMouseLeave={scheduleClose}
     >
       <a
-        href={href}
-        onClick={(e) => {
-          // On touch devices, first tap should open dropdown instead of jumping
-          if (!open && window.matchMedia('(hover: none)').matches) {
-            e.preventDefault()
-            setOpen(true)
-          }
-        }}
+        href={`/#${anchor}`}
+        onClick={onLabelClick}
         style={{
           display: 'inline-flex',
           alignItems: 'center',
@@ -159,37 +194,64 @@ function NavDropdown({ label, href, items }) {
           }}
         >
           {items.map(item => (
-            <a
-              key={item.href}
-              href={item.href}
-              target={item.external ? '_blank' : '_self'}
-              rel={item.external ? 'noopener noreferrer' : ''}
-              onClick={() => setOpen(false)}
-              style={{
-                display: 'block',
-                padding: '0.65rem 0.9rem',
-                fontSize: '0.92rem',
-                fontWeight: 600,
-                color: 'var(--text-dim)',
-                borderRadius: '10px',
-                transition: 'background .15s, color .15s',
-                whiteSpace: 'nowrap',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.background = 'rgba(232, 180, 72, 0.12)'
-                e.currentTarget.style.color = 'var(--gold-light)'
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.background = 'transparent'
-                e.currentTarget.style.color = 'var(--text-dim)'
-              }}
-            >
-              {item.label}{item.external ? ' ↗' : ''}
-            </a>
+            <DropdownItem key={item.href} item={item} close={() => setOpen(false)} />
           ))}
         </div>
       )}
     </div>
+  )
+}
+
+function DropdownItem({ item, close }) {
+  const location = useLocation()
+  const navigate = useNavigate()
+  const linkStyle = {
+    display: 'block',
+    padding: '0.65rem 0.9rem',
+    fontSize: '0.92rem',
+    fontWeight: 600,
+    color: 'var(--text-dim)',
+    borderRadius: '10px',
+    transition: 'background .15s, color .15s',
+    whiteSpace: 'nowrap',
+  }
+  const enter = e => {
+    e.currentTarget.style.background = 'rgba(232, 180, 72, 0.12)'
+    e.currentTarget.style.color = 'var(--gold-light)'
+  }
+  const leave = e => {
+    e.currentTarget.style.background = 'transparent'
+    e.currentTarget.style.color = 'var(--text-dim)'
+  }
+
+  if (item.external) {
+    return (
+      <a href={item.href} target="_blank" rel="noopener noreferrer" onClick={close} style={linkStyle} onMouseEnter={enter} onMouseLeave={leave}>
+        {item.label} ↗
+      </a>
+    )
+  }
+
+  function onClick(e) {
+    if (item.href.startsWith('/#')) {
+      e.preventDefault()
+      const id = item.href.slice(2)
+      close()
+      if (location.pathname === '/') {
+        const el = document.getElementById(id)
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      } else {
+        navigate(`/#${id}`)
+      }
+    } else {
+      close()
+    }
+  }
+
+  return (
+    <Link to={item.href} onClick={onClick} style={linkStyle} onMouseEnter={enter} onMouseLeave={leave}>
+      {item.label}
+    </Link>
   )
 }
 

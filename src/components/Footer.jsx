@@ -18,9 +18,10 @@ function Footer() {
             © {new Date().getFullYear()} Liabri Studios. All stories belong to the children who read them.
           </p>
           <div style={{ display: 'flex', gap: '1.5rem', fontSize: '0.88rem' }}>
-            <a href="#worlds" style={{ color: 'var(--text-dim)' }}>Worlds</a>
-            <a href="#about" style={{ color: 'var(--text-dim)' }}>About</a>
-            <a href="#contact" style={{ color: 'var(--text-dim)' }}>Contact</a>
+            <a href="/#worlds" style={{ color: 'var(--text-dim)' }}>Worlds</a>
+            <a href="/#about" style={{ color: 'var(--text-dim)' }}>About</a>
+            <a href="/blog" style={{ color: 'var(--text-dim)' }}>Blog</a>
+            <a href="/#contact" style={{ color: 'var(--text-dim)' }}>Contact</a>
           </div>
         </div>
       </div>
