@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://liabristudios.com/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://liabristudios.com/assets/og-image.jpg</image:loc>
+      <image:title>Liabri Studios</image:title>
+      <image:caption>Independent children's book publisher</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://liabristudios.com/assets/finn-cover.jpg</image:loc>
+      <image:title>Finn Finds His Feet</image:title>
+      <image:caption>A picture book about coordination difficulties (dyspraxia / DCD) for children aged 4 to 8</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://liabristudios.com/assets/fh-cover.jpg</image:loc>
+      <image:title>The Brave River Rescue</image:title>
+      <image:caption>A Frankie &amp; Henry picture book adventure about courage and friendship for ages 4 to 8</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://liabristudios.com/assets/sbj-cover.jpg</image:loc>
+      <image:title>Eli's Gift</image:title>
+      <image:caption>A Christian picture book retelling of the loaves and fishes for children aged 4 to 8</image:caption>
+    </image:image>
+  </url>
+</urlset>
