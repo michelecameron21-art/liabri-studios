@@ -44,9 +44,19 @@ function CookieBanner() {
         color: 'var(--text-light)',
       }}
     >
+      <h2 style={{
+        margin: '0 0 0.5rem',
+        fontFamily: 'Fraunces, serif',
+        fontSize: '1.25rem',
+        fontWeight: 600,
+        color: 'var(--text-light)',
+      }}>
+        Cookies
+      </h2>
       <p style={{ margin: 0, fontSize: '0.95rem', lineHeight: 1.55, color: 'var(--text-dim)' }}>
-        We use a small amount of essential storage to remember this choice. If you accept analytics, we will also load Google
-        Analytics to understand how the site is used. See our <Link to="/cookies" style={{ color: 'var(--gold-light)' }}>Cookie Policy</Link>.
+        We use some non-essential cookies to understand how you use our website. We need your permission to use these. Other
+        cookies are essential to make our website work properly. You can choose which cookies to accept, and you can change your
+        preferences at any time. For more information, please view our <Link to="/cookies" style={{ color: 'var(--gold-light)' }}>Cookie Policy</Link>.
       </p>
       <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1rem', flexWrap: 'wrap' }}>
         <button
