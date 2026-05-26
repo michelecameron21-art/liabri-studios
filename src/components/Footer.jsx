@@ -17,8 +17,8 @@ function Footer() {
           justifyContent: 'space-between',
           alignItems: 'flex-start',
         }}>
-          <p style={{ color: 'var(--text-dim-strong)', fontSize: '0.88rem', maxWidth: '32rem' }}>
-            © {new Date().getFullYear()} Liabri Studios. All stories belong to the children who read them.
+          <p style={{ color: 'var(--text-dim-strong)', fontSize: '0.88rem' }}>
+            © {new Date().getFullYear()} Liabri Studios.
           </p>
           <nav aria-label="Site footer" style={{
             display: 'flex',
