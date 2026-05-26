@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://liabristudios.com/sitemap.xml
+Sitemap: https://www.liabristudios.com/sitemap.xml

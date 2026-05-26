@@ -2,77 +2,77 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://liabristudios.com/</loc>
+    <loc>https://www.liabristudios.com/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://liabristudios.com/assets/og-image.jpg</image:loc>
+      <image:loc>https://www.liabristudios.com/assets/og-image.jpg</image:loc>
       <image:title>Liabri Studios</image:title>
       <image:caption>Independent children's book publisher</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://liabristudios.com/assets/finn-cover.jpg</image:loc>
+      <image:loc>https://www.liabristudios.com/assets/finn-cover.jpg</image:loc>
       <image:title>Finn Finds His Feet</image:title>
       <image:caption>A picture book about coordination difficulties (dyspraxia / DCD) for children aged 4 to 8</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://liabristudios.com/assets/fh-cover.jpg</image:loc>
+      <image:loc>https://www.liabristudios.com/assets/fh-cover.jpg</image:loc>
       <image:title>The Brave River Rescue</image:title>
       <image:caption>A Frankie &amp; Henry picture book adventure about courage and friendship for ages 4 to 8</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://liabristudios.com/assets/sbj-cover.jpg</image:loc>
+      <image:loc>https://www.liabristudios.com/assets/sbj-cover.jpg</image:loc>
       <image:title>Eli's Gift</image:title>
       <image:caption>A Christian picture book retelling of the loaves and fishes for children aged 4 to 8</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://liabristudios.com/blog</loc>
+    <loc>https://www.liabristudios.com/blog</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://liabristudios.com/blog/what-is-dyspraxia-in-children-parents-guide</loc>
+    <loc>https://www.liabristudios.com/blog/what-is-dyspraxia-in-children-parents-guide</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://liabristudios.com/assets/finn-cover.jpg</image:loc>
+      <image:loc>https://www.liabristudios.com/assets/finn-cover.jpg</image:loc>
       <image:title>Finn Finds His Feet</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://liabristudios.com/blog/picture-books-for-children-who-feel-different</loc>
+    <loc>https://www.liabristudios.com/blog/picture-books-for-children-who-feel-different</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://liabristudios.com/blog/christian-picture-books-jesus-loves-children</loc>
+    <loc>https://www.liabristudios.com/blog/christian-picture-books-jesus-loves-children</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://liabristudios.com/assets/sbj-cover.jpg</image:loc>
+      <image:loc>https://www.liabristudios.com/assets/sbj-cover.jpg</image:loc>
       <image:title>Eli's Gift</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://liabristudios.com/privacy</loc>
+    <loc>https://www.liabristudios.com/privacy</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://liabristudios.com/cookies</loc>
+    <loc>https://www.liabristudios.com/cookies</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://liabristudios.com/terms</loc>
+    <loc>https://www.liabristudios.com/terms</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
