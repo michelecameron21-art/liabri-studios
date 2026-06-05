@@ -11,13 +11,13 @@ const reviews = [
     stars: 4,
     title: 'A powerful story about understanding differences and discovering hidden strengths',
     body:
-      "This is a warm, heartfelt, and encouraging book that helps children understand that being different is not something to be ashamed of. Fin's struggles with coordination feel real and relatable, but what makes this story special is how he slowly learns that his brain simply works differently and that those differences can also become strengths.\n\nI really appreciated the positive and compassionate way the author explains the topic to children. The story not only helps kids like Finn feel understood and confident but also teaches other children empathy, patience, and kindness toward those who may experience the world differently. The illustrations are lovely, the message is uplifting, and the overall book leaves readers with a sense of hope and self-acceptance.",
+      "This is a warm, heartfelt, and encouraging book that helps children understand that being different is not something to be ashamed of. Fin's struggles with coordination feel real and relatable, but what makes this story special is how he slowly learns that his brain simply works differently and that those differences can also become strengths.",
     by: 'Verified Amazon reviewer, France',
     verified: true,
   },
   {
     stars: 5,
-    title: 'you might be clumsy but you might be able to notice details, pattern and cross reference-insights',
+    title: 'You might be clumsy but you might be able to notice details, pattern and cross reference-insights',
     body:
       "Even if you might be clumsy and uncoordinated you might be able to notice details, pattern and cross reference-insights nobody else is able to notice - this is the premise of this book, which is lovely. The moral story is also nice: have faith in yourself.",
     by: 'Amazon reviewer, United States',
