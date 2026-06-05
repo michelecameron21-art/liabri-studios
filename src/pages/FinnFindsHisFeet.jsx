@@ -28,7 +28,7 @@ const reviews = [
 const forYou = [
   'Your child drops things, bumps into things, or feels clumsy',
   'They’ve been assessed for DCD, dyspraxia, or coordination difficulties',
-  'They find PE, handwriting, or buttoning shirts harder than the other kids',
+  'They find gym class, handwriting, or buttoning shirts harder than the other kids',
   'They’re starting to feel different, and you want them to know that’s okay',
   'They’re a child a teacher, SENCO, or OT is supporting',
   'They need to hear that there is nothing wrong with them',
@@ -227,7 +227,7 @@ function FinnFindsHisFeet() {
             gap: '1.4rem',
           }}>
             <p>
-              His toast. His pencil. His entire lunch tray, in front of everyone. And when the PE ball hits him right on the nose, all Finn wants to do is disappear.
+              His toast. His pencil. His entire lunch tray, in front of everyone. And when the ball hits him right on the nose in gym class, all Finn wants to do is disappear.
             </p>
             <p>
               Then Finn meets Rosa, the school&rsquo;s occupational therapist. And Rosa tells him something nobody has said before. <strong style={{ color: 'var(--cream)', fontWeight: 700 }}>His brain isn&rsquo;t broken. It just works differently.</strong>
