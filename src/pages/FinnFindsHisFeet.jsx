@@ -38,8 +38,8 @@ const forYou = [
   'They’ve been assessed for DCD, dyspraxia, or coordination difficulties',
   'They find gym class, handwriting, or buttoning shirts harder than the other kids',
   'They’re starting to feel different, and you want them to know that’s okay',
-  'They’re a child a teacher, SENCO, or OT is supporting',
-  'They need to hear that there is nothing wrong with them',
+  'They’re working with a teacher, SENCO, or OT',
+  'They need to hear that there’s nothing wrong with them',
 ]
 
 function FinnFindsHisFeet() {
@@ -158,106 +158,20 @@ function FinnFindsHisFeet() {
             </p>
             <p style={{ marginTop: '1.25rem', fontSize: '0.92rem', color: 'var(--text-dim)' }}>
               <span style={{ color: 'var(--gold)', letterSpacing: '0.15em', marginRight: '0.4rem' }}>★★★★★</span>
-              Loved by verified Amazon readers.
+              Loved by Amazon readers around the world.
             </p>
           </div>
         </div>
       </section>
 
-      {/* WHO IT'S FOR — moved up; identification list */}
-      <section className="section" style={{ background: 'var(--navy)', padding: 'clamp(3rem, 6vw, 5rem) 1.5rem' }}>
-        <div className="container" style={{ maxWidth: '760px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <span className="accent-line" />
-            <span className="kicker">Is this your child?</span>
-            <h2 style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>
-              This is for your family if&hellip;
-            </h2>
-          </div>
-
-          <ul style={{
-            listStyle: 'none',
-            padding: 0,
-            margin: 0,
-            display: 'grid',
-            gap: '0.85rem',
-            maxWidth: '640px',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-          }}>
-            {forYou.map((item, i) => (
-              <li key={i} style={{
-                display: 'flex',
-                gap: '0.85rem',
-                alignItems: 'flex-start',
-                padding: '0.9rem 1.1rem',
-                background: 'rgba(232,180,72,0.06)',
-                border: '1px solid rgba(232,180,72,0.18)',
-                borderRadius: 'var(--radius-lg)',
-                color: 'var(--cream)',
-                lineHeight: 1.5,
-              }}>
-                <span aria-hidden="true" style={{ color: 'var(--gold)', fontWeight: 800, fontSize: '1.1rem', flexShrink: 0, marginTop: '-1px' }}>✓</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-
-          <p style={{
-            textAlign: 'center',
-            marginTop: '2.5rem',
-            fontFamily: 'var(--font-serif)',
-            fontStyle: 'italic',
-            fontSize: 'clamp(1.1rem, 1.8vw, 1.4rem)',
-            color: 'var(--gold-light)',
-          }}>
-            A heartwarming story for ages 4 to 8.
-          </p>
-        </div>
-      </section>
-
-      {/* THE STORY */}
-      <section className="section" style={{ background: 'var(--navy-deep)', padding: 'clamp(3rem, 6vw, 5rem) 1.5rem' }}>
-        <div className="container" style={{ maxWidth: '720px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
-            <span className="accent-line" />
-            <span className="kicker">What happens</span>
-            <h2 style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>
-              Finn drops things.
-            </h2>
-          </div>
-
-          <div style={{
-            fontSize: 'clamp(1.05rem, 1.5vw, 1.2rem)',
-            color: 'var(--text-dim)',
-            lineHeight: 1.8,
-            display: 'grid',
-            gap: '1.4rem',
-          }}>
-            <p>
-              His toast. His pencil. His entire lunch tray, in front of everyone. And when the ball hits him right on the nose in gym class, all Finn wants to do is disappear.
-            </p>
-            <p>
-              Then Finn meets Rosa, the school&rsquo;s occupational therapist. And Rosa tells him something nobody has said before. <strong style={{ color: 'var(--cream)', fontWeight: 700 }}>His brain isn&rsquo;t broken. It just works differently.</strong>
-            </p>
-            <p>
-              His brain sends signals in zigzags. So yes, some things will always be a little harder. But his brain also sees what everyone else walks straight past. The spider in the corner of the library. The sadness on a friend&rsquo;s face. The rain coming, before the clouds even change.
-            </p>
-            <p>
-              By the end of the story, Finn understands his brain. He sees its quiet superpower. And he wouldn&rsquo;t change a thing about it.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* REVIEWS — full text */}
+      {/* REVIEWS — moved above the fold to land social proof early on TikTok cold traffic */}
       <section className="section" style={{ background: 'var(--navy)', padding: 'clamp(3rem, 6vw, 5rem) 1.5rem' }}>
         <div className="container" style={{ maxWidth: '960px' }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <span className="accent-line" />
             <span className="kicker">What readers are saying</span>
             <h2 style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>
-              From verified Amazon reviewers.
+              From Amazon readers around the world.
             </h2>
           </div>
 
@@ -334,6 +248,92 @@ function FinnFindsHisFeet() {
                 </p>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHO IT'S FOR — identification list */}
+      <section className="section" style={{ background: 'var(--navy-deep)', padding: 'clamp(3rem, 6vw, 5rem) 1.5rem' }}>
+        <div className="container" style={{ maxWidth: '760px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+            <span className="accent-line" />
+            <span className="kicker">Is this your child?</span>
+            <h2 style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>
+              This is for your family if&hellip;
+            </h2>
+          </div>
+
+          <ul style={{
+            listStyle: 'none',
+            padding: 0,
+            margin: 0,
+            display: 'grid',
+            gap: '0.85rem',
+            maxWidth: '640px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}>
+            {forYou.map((item, i) => (
+              <li key={i} style={{
+                display: 'flex',
+                gap: '0.85rem',
+                alignItems: 'flex-start',
+                padding: '0.9rem 1.1rem',
+                background: 'rgba(232,180,72,0.06)',
+                border: '1px solid rgba(232,180,72,0.18)',
+                borderRadius: 'var(--radius-lg)',
+                color: 'var(--cream)',
+                lineHeight: 1.5,
+              }}>
+                <span aria-hidden="true" style={{ color: 'var(--gold)', fontWeight: 800, fontSize: '1.1rem', flexShrink: 0, marginTop: '-1px' }}>✓</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <p style={{
+            textAlign: 'center',
+            marginTop: '2.5rem',
+            fontFamily: 'var(--font-serif)',
+            fontStyle: 'italic',
+            fontSize: 'clamp(1.1rem, 1.8vw, 1.4rem)',
+            color: 'var(--gold-light)',
+          }}>
+            A heartwarming story for ages 4 to 8.
+          </p>
+        </div>
+      </section>
+
+      {/* THE STORY */}
+      <section className="section" style={{ background: 'var(--navy)', padding: 'clamp(3rem, 6vw, 5rem) 1.5rem' }}>
+        <div className="container" style={{ maxWidth: '720px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+            <span className="accent-line" />
+            <span className="kicker">What happens</span>
+            <h2 style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>
+              Finn drops things.
+            </h2>
+          </div>
+
+          <div style={{
+            fontSize: 'clamp(1.05rem, 1.5vw, 1.2rem)',
+            color: 'var(--text-dim)',
+            lineHeight: 1.8,
+            display: 'grid',
+            gap: '1.4rem',
+          }}>
+            <p>
+              His toast. His pencil. His entire lunch tray, in front of everyone. And when the ball hits him right on the nose in gym class, all Finn wants to do is disappear.
+            </p>
+            <p>
+              Then Finn meets Rosa, the school&rsquo;s occupational therapist. And Rosa tells him something nobody has said before. <strong style={{ color: 'var(--cream)', fontWeight: 700 }}>His brain isn&rsquo;t broken. It just works differently.</strong>
+            </p>
+            <p>
+              His brain sends signals in zigzags. So yes, some things will always be a little harder. But his brain also sees what everyone else walks straight past. The spider in the corner of the library. The sadness on a friend&rsquo;s face. The rain coming, before the clouds even change.
+            </p>
+            <p>
+              By the end of the story, Finn understands his brain. He sees its quiet superpower. And he wouldn&rsquo;t change a thing about it.
+            </p>
           </div>
         </div>
       </section>
