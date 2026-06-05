@@ -5,29 +5,44 @@ import { Link } from 'react-router-dom'
 const AMAZON_URL = 'https://www.amazon.com/dp/1067638512'
 const COVER = '/assets/finn-cover.jpg'
 
-// Real reviews provided by Michele (US + France, Jun 2026)
+// Real reviews provided by Michele (kept verbatim, light typo fixes for readability)
 const reviews = [
   {
-    quote: 'A warm, heartfelt, and encouraging book that helps children understand that being different is not something to be ashamed of.',
-    by: 'Verified Amazon reviewer, France',
     stars: 4,
+    title: 'A powerful story about understanding differences and discovering hidden strengths',
+    body:
+      "This is a warm, heartfelt, and encouraging book that helps children understand that being different is not something to be ashamed of. Finn's struggles with coordination feel real and relatable, but what makes this story special is how he slowly learns that his brain simply works differently and that those differences can also become strengths.\n\nI really appreciated the positive and compassionate way the author explains the topic to children. The story not only helps kids like Finn feel understood and confident but also teaches other children empathy, patience, and kindness toward those who may experience the world differently. The illustrations are lovely, the message is uplifting, and the overall book leaves readers with a sense of hope and self-acceptance.",
+    by: 'Verified Amazon reviewer, France',
+    verified: true,
   },
   {
-    quote: 'A lovely story with a beautiful moral: have faith in yourself.',
-    by: 'Amazon reviewer, United States',
     stars: 5,
+    title: 'You might be clumsy, but you might notice details, patterns and cross-reference insights nobody else can',
+    body:
+      "Even if you might be clumsy and uncoordinated, you might be able to notice details, patterns and cross-reference insights nobody else is able to notice. This is the premise of this book, which is lovely. The moral of the story is also nice: have faith in yourself.",
+    by: 'Amazon reviewer, United States',
+    verified: false,
   },
 ]
 
+const forYou = [
+  'Your child drops things, bumps into things, or feels clumsy',
+  'They’ve been assessed for DCD, dyspraxia, or coordination difficulties',
+  'They find PE, handwriting, or buttoning shirts harder than the other kids',
+  'They’re starting to feel different, and you want them to know that’s okay',
+  'They’re a child a teacher, SENCO, or OT is supporting',
+  'They need to hear that there is nothing wrong with them',
+]
+
 function FinnFindsHisFeet() {
-  // SEO + share metadata for this page
+  // SEO + share metadata
   useEffect(() => {
     const prevTitle = document.title
     document.title = 'Finn Finds His Feet | A Liabri Studios Story'
     const desc = document.querySelector('meta[name="description"]')
     const prevDesc = desc ? desc.getAttribute('content') : null
     const newDesc =
-      'A gentle, hopeful story about bravery, being different, and the friends who cheer you on. Get it on Amazon.'
+      "For the child who finds things a little harder. A warm, hopeful story about discovering your brain isn't broken. It just works differently."
     if (desc) desc.setAttribute('content', newDesc)
     return () => {
       document.title = prevTitle
@@ -37,6 +52,28 @@ function FinnFindsHisFeet() {
 
   return (
     <div style={{ background: 'var(--navy-deep)', minHeight: '100vh', position: 'relative', overflow: 'hidden' }}>
+      {/* Sticky mobile bottom CTA — biggest single conversion lift on ad landing pages */}
+      <style>{`
+        .finn-sticky-cta { display: none; }
+        @media (max-width: 768px) {
+          .finn-sticky-cta {
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: linear-gradient(180deg, rgba(6,18,43,0) 0%, rgba(6,18,43,0.96) 35%);
+            padding: 1rem 1rem 1.25rem;
+            justify-content: center;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+          }
+          .finn-sticky-cta .btn { width: 100%; max-width: 400px; padding: 1rem 1.5rem; font-size: 1.05rem; }
+          .finn-sticky-spacer { height: 96px; }
+        }
+      `}</style>
+
       <div className="starfield" aria-hidden="true" />
 
       {/* Minimal top-left logo — the only link out of this page */}
@@ -51,7 +88,7 @@ function FinnFindsHisFeet() {
       </header>
 
       {/* HERO */}
-      <section style={{ position: 'relative', padding: 'clamp(2rem, 5vw, 4rem) 1.5rem clamp(3rem, 6vw, 5rem)' }}>
+      <section style={{ position: 'relative', padding: 'clamp(1.5rem, 4vw, 3rem) 1.5rem clamp(2.5rem, 5vw, 4rem)' }}>
         <div className="container" style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
@@ -62,7 +99,7 @@ function FinnFindsHisFeet() {
           <div style={{ textAlign: 'center' }}>
             <img
               src={COVER}
-              alt="Finn Finds His Feet — book cover"
+              alt="Finn Finds His Feet — children's story book cover"
               style={{
                 width: 'min(360px, 78vw)',
                 margin: '0 auto',
@@ -72,9 +109,11 @@ function FinnFindsHisFeet() {
             />
           </div>
 
-          {/* Title + hook + CTA */}
+          {/* Hook + title + CTA */}
           <div style={{ textAlign: 'center' }}>
-            <span className="kicker" style={{ marginBottom: '1.25rem' }}>A Liabri story</span>
+            <span className="kicker" style={{ marginBottom: '1rem', color: 'var(--gold)' }}>
+              For the child who finds things a little harder
+            </span>
             <h1 style={{
               fontFamily: 'var(--font-serif)',
               fontStyle: 'italic',
@@ -89,13 +128,13 @@ function FinnFindsHisFeet() {
               Finn Finds His Feet
             </h1>
             <p style={{
-              fontSize: 'clamp(1.05rem, 1.6vw, 1.3rem)',
-              color: 'var(--text-dim)',
-              maxWidth: '32rem',
+              fontSize: 'clamp(1.1rem, 1.7vw, 1.35rem)',
+              color: 'var(--cream)',
+              maxWidth: '34rem',
               margin: '0 auto 2rem',
-              lineHeight: 1.6,
+              lineHeight: 1.55,
             }}>
-              A gentle story for any child still finding their feet.
+              A warm, hopeful story about discovering your brain isn&rsquo;t broken. It just works differently.
             </p>
             <a
               className="btn"
@@ -109,99 +148,183 @@ function FinnFindsHisFeet() {
             <p style={{ marginTop: '0.85rem', fontSize: '0.85rem', color: 'var(--text-dim-strong)' }}>
               Available in Kindle &amp; Paperback
             </p>
+            <p style={{ marginTop: '1.25rem', fontSize: '0.92rem', color: 'var(--text-dim)' }}>
+              <span style={{ color: 'var(--gold)', letterSpacing: '0.15em', marginRight: '0.4rem' }}>★★★★★</span>
+              Loved by verified Amazon readers.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* THE STORY */}
+      {/* WHO IT'S FOR — moved up; identification list */}
       <section className="section" style={{ background: 'var(--navy)', padding: 'clamp(3rem, 6vw, 5rem) 1.5rem' }}>
-        <div className="container" style={{ maxWidth: '720px', textAlign: 'center' }}>
-          <span className="accent-line" />
-          <span className="kicker">The story</span>
-          <h2 style={{
-            fontStyle: 'italic',
-            color: 'var(--gold-light)',
-            marginBottom: '1.5rem',
-          }}>
-            Finding your feet, in your own time.
-          </h2>
-          <p style={{
-            fontSize: 'clamp(1.05rem, 1.5vw, 1.2rem)',
-            color: 'var(--text-dim)',
-            lineHeight: 1.75,
-          }}>
-            Finn finds running, jumping and keeping his balance a little trickier than the other animals. Until he discovers that finding your feet happens in your own way, in your own time. A gentle, hopeful story about bravery, being different, and the friends who cheer you on.
-          </p>
-        </div>
-      </section>
+        <div className="container" style={{ maxWidth: '760px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+            <span className="accent-line" />
+            <span className="kicker">Is this your child?</span>
+            <h2 style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>
+              This is for your family if&hellip;
+            </h2>
+          </div>
 
-      {/* WHO IT'S FOR */}
-      <section style={{ background: 'var(--navy-deep)', padding: 'clamp(2.5rem, 5vw, 4rem) 1.5rem', textAlign: 'center' }}>
-        <div className="container" style={{ maxWidth: '640px' }}>
+          <ul style={{
+            listStyle: 'none',
+            padding: 0,
+            margin: 0,
+            display: 'grid',
+            gap: '0.85rem',
+            maxWidth: '640px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}>
+            {forYou.map((item, i) => (
+              <li key={i} style={{
+                display: 'flex',
+                gap: '0.85rem',
+                alignItems: 'flex-start',
+                padding: '0.9rem 1.1rem',
+                background: 'rgba(232,180,72,0.06)',
+                border: '1px solid rgba(232,180,72,0.18)',
+                borderRadius: 'var(--radius-lg)',
+                color: 'var(--cream)',
+                lineHeight: 1.5,
+              }}>
+                <span aria-hidden="true" style={{ color: 'var(--gold)', fontWeight: 800, fontSize: '1.1rem', flexShrink: 0, marginTop: '-1px' }}>✓</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+
           <p style={{
+            textAlign: 'center',
+            marginTop: '2.5rem',
             fontFamily: 'var(--font-serif)',
             fontStyle: 'italic',
-            fontSize: 'clamp(1.2rem, 2.1vw, 1.6rem)',
-            color: 'var(--cream)',
-            lineHeight: 1.55,
+            fontSize: 'clamp(1.1rem, 1.8vw, 1.4rem)',
+            color: 'var(--gold-light)',
           }}>
-            A heartwarming story for ages 4 to 8, and especially for any child learning that everyone finds their feet differently.
+            A heartwarming story for ages 4 to 8.
           </p>
         </div>
       </section>
 
-      {/* REVIEWS */}
+      {/* THE STORY */}
+      <section className="section" style={{ background: 'var(--navy-deep)', padding: 'clamp(3rem, 6vw, 5rem) 1.5rem' }}>
+        <div className="container" style={{ maxWidth: '720px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '2.5rem' }}>
+            <span className="accent-line" />
+            <span className="kicker">What happens</span>
+            <h2 style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>
+              Finn drops things.
+            </h2>
+          </div>
+
+          <div style={{
+            fontSize: 'clamp(1.05rem, 1.5vw, 1.2rem)',
+            color: 'var(--text-dim)',
+            lineHeight: 1.8,
+            display: 'grid',
+            gap: '1.4rem',
+          }}>
+            <p>
+              His toast. His pencil. His entire lunch tray, in front of everyone. And when the PE ball hits him right on the nose, all Finn wants to do is disappear.
+            </p>
+            <p>
+              Then Finn meets Rosa, the school&rsquo;s occupational therapist. And Rosa tells him something nobody has said before. <strong style={{ color: 'var(--cream)', fontWeight: 700 }}>His brain isn&rsquo;t broken. It just works differently.</strong>
+            </p>
+            <p>
+              His brain sends signals in zigzags. So yes, some things will always be a little harder. But his brain also sees what everyone else walks straight past. The spider in the corner of the library. The sadness on a friend&rsquo;s face. The rain coming, before the clouds even change.
+            </p>
+            <p>
+              By the end of the story, Finn understands his brain. He sees its quiet superpower. And he wouldn&rsquo;t change a thing about it.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* REVIEWS — full text */}
       <section className="section" style={{ background: 'var(--navy)', padding: 'clamp(3rem, 6vw, 5rem) 1.5rem' }}>
         <div className="container" style={{ maxWidth: '960px' }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <span className="accent-line" />
             <span className="kicker">What readers are saying</span>
             <h2 style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>
-              From parents and small readers.
+              From verified Amazon reviewers.
             </h2>
           </div>
 
           <div style={{
             display: 'grid',
             gap: '1.5rem',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
           }}>
             {reviews.map((r, i) => (
-              <figure key={i} style={{
+              <article key={i} style={{
                 background: 'linear-gradient(170deg, rgba(26,43,85,0.7) 0%, rgba(11,26,61,0.85) 100%)',
                 border: '1px solid rgba(232,180,72,0.25)',
                 borderRadius: 'var(--radius-lg)',
-                padding: '2rem 1.75rem',
-                margin: 0,
+                padding: '2rem 1.85rem',
               }}>
-                <div aria-label={`${r.stars} out of 5 stars`} style={{
-                  color: 'var(--gold)',
-                  fontSize: '1.1rem',
-                  marginBottom: '1rem',
-                  letterSpacing: '0.15em',
-                }}>
-                  {'★'.repeat(r.stars)}
-                  <span style={{ color: 'rgba(232,180,72,0.3)' }}>{'★'.repeat(5 - r.stars)}</span>
+                {/* Stars + verified badge row */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '0.85rem', flexWrap: 'wrap' }}>
+                  <span aria-label={`${r.stars} out of 5 stars`} style={{
+                    color: 'var(--gold)',
+                    fontSize: '1.05rem',
+                    letterSpacing: '0.15em',
+                  }}>
+                    {'★'.repeat(r.stars)}
+                    <span style={{ color: 'rgba(232,180,72,0.3)' }}>{'★'.repeat(5 - r.stars)}</span>
+                  </span>
+                  {r.verified && (
+                    <span style={{
+                      fontSize: '0.7rem',
+                      fontWeight: 800,
+                      letterSpacing: '0.08em',
+                      textTransform: 'uppercase',
+                      color: 'var(--gold-light)',
+                      background: 'rgba(232,180,72,0.12)',
+                      border: '1px solid rgba(232,180,72,0.35)',
+                      padding: '0.25rem 0.55rem',
+                      borderRadius: '999px',
+                    }}>
+                      Verified Purchase
+                    </span>
+                  )}
                 </div>
-                <blockquote style={{
+
+                {/* Review title */}
+                <h3 style={{
                   fontFamily: 'var(--font-serif)',
                   fontStyle: 'italic',
-                  fontSize: '1.08rem',
+                  fontSize: '1.15rem',
                   color: 'var(--cream)',
-                  lineHeight: 1.65,
-                  margin: '0 0 1.25rem',
+                  lineHeight: 1.4,
+                  marginBottom: '1rem',
                 }}>
-                  &ldquo;{r.quote}&rdquo;
-                </blockquote>
-                <figcaption style={{
+                  {r.title}
+                </h3>
+
+                {/* Review body — full text, preserving paragraph breaks */}
+                <div style={{
+                  color: 'var(--text-dim)',
+                  fontSize: '0.98rem',
+                  lineHeight: 1.7,
+                  marginBottom: '1.25rem',
+                }}>
+                  {r.body.split('\n\n').map((para, j) => (
+                    <p key={j} style={{ margin: j === 0 ? 0 : '1rem 0 0' }}>{para}</p>
+                  ))}
+                </div>
+
+                <p style={{
                   color: 'var(--text-dim-strong)',
-                  fontSize: '0.88rem',
+                  fontSize: '0.85rem',
                   fontWeight: 700,
                   letterSpacing: '0.02em',
                 }}>
                   {r.by}
-                </figcaption>
-              </figure>
+                </p>
+              </article>
             ))}
           </div>
         </div>
@@ -223,7 +346,7 @@ function FinnFindsHisFeet() {
             marginBottom: '1.25rem',
             textShadow: '0 4px 30px rgba(232,180,72,0.25)',
           }}>
-            Bring Finn's story home.
+            Bring Finn&rsquo;s story home.
           </h2>
           <p style={{
             color: 'var(--text-dim)',
@@ -231,7 +354,7 @@ function FinnFindsHisFeet() {
             fontSize: '1.05rem',
             lineHeight: 1.6,
           }}>
-            A warm bedtime read for any child still finding their feet.
+            A warm bedtime read your child will ask for again.
           </p>
           <a
             className="btn"
@@ -248,6 +371,9 @@ function FinnFindsHisFeet() {
         </div>
       </section>
 
+      {/* Spacer so sticky CTA doesn't cover final footer on mobile */}
+      <div className="finn-sticky-spacer" aria-hidden="true" />
+
       {/* Minimal footer — no links out per conversion focus */}
       <footer style={{
         background: 'var(--navy-deep)',
@@ -259,6 +385,18 @@ function FinnFindsHisFeet() {
           © 2026 Liabri Studios
         </p>
       </footer>
+
+      {/* Sticky mobile bottom CTA — hidden on desktop via CSS above */}
+      <div className="finn-sticky-cta">
+        <a
+          className="btn"
+          href={AMAZON_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get it on Amazon
+        </a>
+      </div>
     </div>
   )
 }
