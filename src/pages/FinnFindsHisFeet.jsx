@@ -50,7 +50,7 @@ function FinnFindsHisFeet() {
     const desc = document.querySelector('meta[name="description"]')
     const prevDesc = desc ? desc.getAttribute('content') : null
     const newDesc =
-      "For the child who finds things a little harder. A warm, hopeful story about discovering your brain isn't broken. It just works differently."
+      "An uplifting, inspirational story about discovering that a brain that works differently might just be your superpower. Finn Finds His Feet, on Amazon."
     if (desc) desc.setAttribute('content', newDesc)
     return () => {
       document.title = prevTitle
@@ -142,7 +142,7 @@ function FinnFindsHisFeet() {
               margin: '0 auto 2rem',
               lineHeight: 1.55,
             }}>
-              A warm, hopeful story about discovering your brain isn&rsquo;t broken. It just works differently.
+              An uplifting, inspirational story about discovering that a brain that works differently might just be your superpower.
             </p>
             <a
               className="btn"
@@ -334,6 +334,46 @@ function FinnFindsHisFeet() {
             <p>
               By the end of the story, Finn understands his brain. He sees its quiet superpower. And he wouldn&rsquo;t change a thing about it.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* GALLERY — a look inside the book */}
+      <section className="section" style={{ background: 'var(--navy-deep)', padding: 'clamp(3rem, 6vw, 5rem) 1.5rem' }}>
+        <div className="container" style={{ maxWidth: '1080px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <span className="accent-line" />
+            <span className="kicker">A look inside</span>
+            <h2 style={{ fontStyle: 'italic', color: 'var(--gold-light)' }}>
+              Some pages from Finn&rsquo;s story.
+            </h2>
+          </div>
+
+          <div style={{
+            display: 'grid',
+            gap: '1.25rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+          }}>
+            {[1,2,3,4,5,6].map(n => {
+              const num = String(n).padStart(2, '0')
+              return (
+                <div key={n} style={{
+                  aspectRatio: '4 / 5',
+                  overflow: 'hidden',
+                  borderRadius: 'var(--radius-lg)',
+                  border: '1px solid rgba(232,180,72,0.25)',
+                  background: 'rgba(0,0,0,0.25)',
+                  boxShadow: '0 14px 36px rgba(0,0,0,0.45)',
+                }}>
+                  <img
+                    src={`/assets/finn-interior/finn-page-${num}.jpg`}
+                    alt={`A page from Finn Finds His Feet, image ${n} of 6`}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    loading="lazy"
+                  />
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
