@@ -5,21 +5,21 @@ import { Link } from 'react-router-dom'
 const AMAZON_URL = 'https://www.amazon.com/dp/1067638512'
 const COVER = '/assets/finn-cover.jpg'
 
-// Real reviews provided by Michele (kept verbatim, light typo fixes for readability)
+// Real reviews provided by Michele (VERBATIM — typos and grammar preserved for authenticity)
 const reviews = [
   {
     stars: 4,
     title: 'A powerful story about understanding differences and discovering hidden strengths',
     body:
-      "This is a warm, heartfelt, and encouraging book that helps children understand that being different is not something to be ashamed of. Finn's struggles with coordination feel real and relatable, but what makes this story special is how he slowly learns that his brain simply works differently and that those differences can also become strengths.\n\nI really appreciated the positive and compassionate way the author explains the topic to children. The story not only helps kids like Finn feel understood and confident but also teaches other children empathy, patience, and kindness toward those who may experience the world differently. The illustrations are lovely, the message is uplifting, and the overall book leaves readers with a sense of hope and self-acceptance.",
+      "This is a warm, heartfelt, and encouraging book that helps children understand that being different is not something to be ashamed of. Fin's struggles with coordination feel real and relatable, but what makes this story special is how he slowly learns that his brain simply works differently and that those differences can also become strengths.\n\nI really appreciated the positive and compassionate way the author explains the topic to children. The story not only helps kids like Finn feel understood and confident but also teaches other children empathy, patience, and kindness toward those who may experience the world differently. The illustrations are lovely, the message is uplifting, and the overall book leaves readers with a sense of hope and self-acceptance.",
     by: 'Verified Amazon reviewer, France',
     verified: true,
   },
   {
     stars: 5,
-    title: 'You might be clumsy, but you might notice details, patterns and cross-reference insights nobody else can',
+    title: 'you might be clumsy but you might be able to notice details, pattern and cross reference-insights',
     body:
-      "Even if you might be clumsy and uncoordinated, you might be able to notice details, patterns and cross-reference insights nobody else is able to notice. This is the premise of this book, which is lovely. The moral of the story is also nice: have faith in yourself.",
+      "Even if you might be clumsy and uncoordinated you might be able to notice details, pattern and cross reference-insights nobody else is able to notice - this is the premise of this book, which is lovely. The moral story is also nice: have faith in yourself.",
     by: 'Amazon reviewer, United States',
     verified: false,
   },
@@ -27,7 +27,7 @@ const reviews = [
     stars: 5,
     title: 'Good Children Book',
     body:
-      "Coordination difficulties are the one we need to notice. This book was really good for kids to understand that this is not the big issue, it can solve in a different way. Excellent illustrations for the story line. I really enjoyed the illustrations with clear and bright colors. Good for the one who face this Coordination difficulties.",
+      "Coordination difficulties are the one we need to notice. This book was really good for kids to understand that this is not the big issue, it can solve in a different way. Excellent illustrations for the stroy line. I really enjoyed the illustrations with clear and bright colors . Good for the one who face this Coordination difficulties.",
     by: 'Amazon reviewer, India',
     verified: false,
   },
