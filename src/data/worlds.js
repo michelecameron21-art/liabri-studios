@@ -5,6 +5,7 @@ export const worlds = [
     tagline: 'Stories about discovering what makes you, you.',
     worldDescription: "A world for kids who feel a little different. Every story inside Finding Your Spark is about a child noticing the thing that lights them up, the thing only they can see, and learning that being different is the gift.",
     palette: { accent: '#FFB14B', glow: 'rgba(255,177,75,0.35)' },
+    landingUrl: '/finn-finds-his-feet',
     book: {
       label: 'Book One',
       title: 'Finn Finds His Feet',

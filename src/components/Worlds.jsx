@@ -23,7 +23,7 @@ function Worlds() {
           {worlds.map((w, idx) => (
             <a
               key={w.id}
-              href={w.teaser ? w.externalUrl : `#${w.id}`}
+              href={w.teaser ? w.externalUrl : (w.landingUrl || `#${w.id}`)}
               target={w.teaser ? '_blank' : '_self'}
               rel={w.teaser ? 'noopener noreferrer' : ''}
               style={{

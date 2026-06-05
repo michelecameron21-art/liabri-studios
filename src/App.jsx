@@ -7,10 +7,14 @@ import Privacy from './pages/Privacy'
 import Cookies from './pages/Cookies'
 import Terms from './pages/Terms'
 import NotFound from './pages/NotFound'
+import FinnFindsHisFeet from './pages/FinnFindsHisFeet'
 
 function App() {
   return (
     <Routes>
+      {/* Conversion landing page — rendered OUTSIDE Layout so no full nav/footer */}
+      <Route path="finn-finds-his-feet" element={<FinnFindsHisFeet />} />
+
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="blog" element={<BlogIndex />} />
