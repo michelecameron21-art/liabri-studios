@@ -411,7 +411,7 @@ function FinnFindsHisFeet() {
             fontSize: '1.05rem',
             lineHeight: 1.6,
           }}>
-            A warm bedtime read your child will ask for again.
+            A heartfelt bedtime story your child will ask for again.
           </p>
           <a
             className="btn"
