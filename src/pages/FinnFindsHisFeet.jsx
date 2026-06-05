@@ -23,6 +23,14 @@ const reviews = [
     by: 'Amazon reviewer, United States',
     verified: false,
   },
+  {
+    stars: 5,
+    title: 'Good Children Book',
+    body:
+      "Coordination difficulties are the one we need to notice. This book was really good for kids to understand that this is not the big issue, it can solve in a different way. Excellent illustrations for the story line. I really enjoyed the illustrations with clear and bright colors. Good for the one who face this Coordination difficulties.",
+    by: 'Amazon reviewer, India',
+    verified: false,
+  },
 ]
 
 const forYou = [
