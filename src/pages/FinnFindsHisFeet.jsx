@@ -80,6 +80,23 @@ function FinnFindsHisFeet() {
           .finn-sticky-cta .btn { width: 100%; max-width: 400px; padding: 1rem 1.5rem; font-size: 1.05rem; }
           .finn-sticky-spacer { height: 96px; }
         }
+
+        /* Reviews + Gallery: locked 3 cols on desktop, balanced rows */
+        .finn-reviews-grid, .finn-gallery-grid {
+          display: grid;
+          gap: 1.25rem;
+          grid-template-columns: repeat(3, 1fr);
+        }
+        @media (max-width: 900px) {
+          .finn-reviews-grid, .finn-gallery-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 600px) {
+          .finn-reviews-grid, .finn-gallery-grid {
+            grid-template-columns: 1fr;
+          }
+        }
       `}</style>
 
       <div className="starfield" aria-hidden="true" />
@@ -175,17 +192,13 @@ function FinnFindsHisFeet() {
             </h2>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gap: '1.5rem',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          }}>
+          <div className="finn-reviews-grid">
             {reviews.map((r, i) => (
               <article key={i} style={{
                 background: 'linear-gradient(170deg, rgba(26,43,85,0.7) 0%, rgba(11,26,61,0.85) 100%)',
                 border: '1px solid rgba(232,180,72,0.25)',
                 borderRadius: 'var(--radius-lg)',
-                padding: '2rem 1.85rem',
+                padding: '1.5rem 1.35rem',
               }}>
                 {/* Stars + verified badge row */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '0.85rem', flexWrap: 'wrap' }}>
@@ -349,11 +362,7 @@ function FinnFindsHisFeet() {
             </h2>
           </div>
 
-          <div style={{
-            display: 'grid',
-            gap: '1.25rem',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-          }}>
+          <div className="finn-gallery-grid">
             {[1,2,3,4,5,6].map(n => {
               const num = String(n).padStart(2, '0')
               return (
