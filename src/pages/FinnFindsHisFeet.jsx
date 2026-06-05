@@ -84,7 +84,7 @@ function FinnFindsHisFeet() {
         /* Reviews + Gallery: locked 3 cols on desktop, balanced rows */
         .finn-reviews-grid, .finn-gallery-grid {
           display: grid;
-          gap: 1.25rem;
+          gap: 1.5rem;
           grid-template-columns: repeat(3, 1fr);
         }
         @media (max-width: 900px) {
@@ -96,6 +96,48 @@ function FinnFindsHisFeet() {
           .finn-reviews-grid, .finn-gallery-grid {
             grid-template-columns: 1fr;
           }
+        }
+
+        /* Gallery card: image + caption + hover-pop */
+        .finn-gallery-card {
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          transition: transform 0.3s ease;
+          cursor: pointer;
+        }
+        .finn-gallery-card:hover {
+          transform: translateY(-8px) scale(1.03);
+          z-index: 2;
+        }
+        .finn-gallery-img {
+          aspect-ratio: 4 / 5;
+          overflow: hidden;
+          border-radius: var(--radius-lg);
+          border: 1px solid rgba(232,180,72,0.25);
+          background: rgba(0,0,0,0.25);
+          box-shadow: 0 14px 36px rgba(0,0,0,0.45);
+          transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .finn-gallery-card:hover .finn-gallery-img {
+          box-shadow: 0 28px 60px rgba(0,0,0,0.65), 0 0 0 2px rgba(232,180,72,0.55);
+          border-color: rgba(232,180,72,0.6);
+        }
+        .finn-gallery-img img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+        .finn-gallery-card figcaption {
+          margin-top: 1rem;
+          font-family: var(--font-serif);
+          font-style: italic;
+          color: var(--cream);
+          font-size: 0.98rem;
+          line-height: 1.5;
+          text-align: center;
+          padding: 0 0.5rem;
         }
       `}</style>
 
@@ -363,24 +405,29 @@ function FinnFindsHisFeet() {
           </div>
 
           <div className="finn-gallery-grid">
-            {[1,2,3,4,5,6].map(n => {
-              const num = String(n).padStart(2, '0')
+            {[
+              "His toast. His pencil. His entire lunch tray.",
+              "Meeting Rosa, the school’s OT.",
+              "“Your brain isn’t broken. Your signals just zigzag.”",
+              "Walking home, thinking in zigzags.",
+              "Noticing the spider spinning a web in the library.",
+              "Knowing it was about to rain before anyone else.",
+              "Building a lolly-stick bridge that held twenty books.",
+              "Winning the Maplewood Makers Challenge.",
+              "Every moment his zigzag brain led somewhere special.",
+            ].map((caption, i) => {
+              const num = String(i + 1).padStart(2, '0')
               return (
-                <div key={n} style={{
-                  aspectRatio: '4 / 5',
-                  overflow: 'hidden',
-                  borderRadius: 'var(--radius-lg)',
-                  border: '1px solid rgba(232,180,72,0.25)',
-                  background: 'rgba(0,0,0,0.25)',
-                  boxShadow: '0 14px 36px rgba(0,0,0,0.45)',
-                }}>
-                  <img
-                    src={`/assets/finn-interior/finn-page-${num}.jpg`}
-                    alt={`A page from Finn Finds His Feet, image ${n} of 6`}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                    loading="lazy"
-                  />
-                </div>
+                <figure key={i} className="finn-gallery-card">
+                  <div className="finn-gallery-img">
+                    <img
+                      src={`/assets/finn-interior/finn-page-${num}.jpg`}
+                      alt={caption}
+                      loading="lazy"
+                    />
+                  </div>
+                  <figcaption>{caption}</figcaption>
+                </figure>
               )
             })}
           </div>
