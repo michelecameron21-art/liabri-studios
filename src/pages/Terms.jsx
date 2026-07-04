@@ -11,11 +11,11 @@ function Terms() {
       <Helmet>
         <title>Terms of Use | Liabri Studios</title>
         <meta name="description" content="Terms of use for the Liabri Studios website. Last updated 26 May 2026." />
-        <link rel="canonical" href="https://liabristudios.com/terms" />
+        <link rel="canonical" href="https://www.liabristudios.com/terms" />
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content="Terms of Use | Liabri Studios" />
         <meta property="og:description" content="Terms of use for the Liabri Studios website." />
-        <meta property="og:url" content="https://liabristudios.com/terms" />
+        <meta property="og:url" content="https://www.liabristudios.com/terms" />
         <meta property="og:type" content="website" />
       </Helmet>
 

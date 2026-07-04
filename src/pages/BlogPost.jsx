@@ -10,10 +10,10 @@ function BlogPost() {
 
   if (!post) return <Navigate to="/404" replace />
 
-  const url = `https://liabristudios.com/blog/${post.slug}`
+  const url = `https://www.liabristudios.com/blog/${post.slug}`
   const ogImage = post.ogImage.startsWith('http')
     ? post.ogImage
-    : `https://liabristudios.com${post.ogImage}`
+    : `https://www.liabristudios.com${post.ogImage}`
 
   const related = posts.filter(p => p.slug !== post.slug).slice(0, 2)
 
@@ -28,14 +28,14 @@ function BlogPost() {
     author: {
       '@type': 'Person',
       name: 'Michele Cameron',
-      url: 'https://liabristudios.com/',
+      url: 'https://www.liabristudios.com/',
     },
     publisher: {
       '@type': 'Organization',
       name: 'Liabri Studios',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://liabristudios.com/assets/liabri-logo.png',
+        url: 'https://www.liabristudios.com/assets/liabri-logo.png',
       },
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },

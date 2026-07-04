@@ -16,11 +16,11 @@ function Cookies() {
       <Helmet>
         <title>Cookie Policy | Liabri Studios</title>
         <meta name="description" content="What cookies Liabri Studios uses and how you can manage your preferences. Last updated 26 May 2026." />
-        <link rel="canonical" href="https://liabristudios.com/cookies" />
+        <link rel="canonical" href="https://www.liabristudios.com/cookies" />
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content="Cookie Policy | Liabri Studios" />
         <meta property="og:description" content="What cookies Liabri Studios uses and how you can manage your preferences." />
-        <meta property="og:url" content="https://liabristudios.com/cookies" />
+        <meta property="og:url" content="https://www.liabristudios.com/cookies" />
         <meta property="og:type" content="website" />
       </Helmet>
 

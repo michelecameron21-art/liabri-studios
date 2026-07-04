@@ -10,11 +10,11 @@ function Privacy() {
       <Helmet>
         <title>Privacy Policy | Liabri Studios</title>
         <meta name="description" content="How Liabri Studios collects, uses and protects your personal data under UK GDPR. Last updated 26 May 2026." />
-        <link rel="canonical" href="https://liabristudios.com/privacy" />
+        <link rel="canonical" href="https://www.liabristudios.com/privacy" />
         <meta name="robots" content="index, follow" />
         <meta property="og:title" content="Privacy Policy | Liabri Studios" />
         <meta property="og:description" content="How Liabri Studios collects, uses and protects your personal data under UK GDPR." />
-        <meta property="og:url" content="https://liabristudios.com/privacy" />
+        <meta property="og:url" content="https://www.liabristudios.com/privacy" />
         <meta property="og:type" content="website" />
       </Helmet>
 

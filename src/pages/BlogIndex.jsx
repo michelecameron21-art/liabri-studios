@@ -8,11 +8,11 @@ function BlogIndex() {
       <Helmet>
         <title>Blog | Liabri Studios — Children's Books, Bravery, Faith & Being Different</title>
         <meta name="description" content="Stories, reading guides and resources from Liabri Studios. Picture books for children aged 4 to 8 about bravery, being different, and faith." />
-        <link rel="canonical" href="https://liabristudios.com/blog" />
+        <link rel="canonical" href="https://www.liabristudios.com/blog" />
         <meta property="og:title" content="Liabri Studios Blog" />
         <meta property="og:description" content="Stories, reading guides and resources from Liabri Studios." />
-        <meta property="og:url" content="https://liabristudios.com/blog" />
-        <meta property="og:image" content="https://liabristudios.com/assets/og-image.jpg" />
+        <meta property="og:url" content="https://www.liabristudios.com/blog" />
+        <meta property="og:image" content="https://www.liabristudios.com/assets/og-image.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
