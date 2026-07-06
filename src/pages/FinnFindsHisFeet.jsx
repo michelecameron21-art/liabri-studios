@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 
 // PLACEHOLDERS (swap when ready)
 const AMAZON_URL = 'https://www.amazon.com/dp/1067638512'
@@ -43,23 +43,21 @@ const forYou = [
 ]
 
 function FinnFindsHisFeet() {
-  // SEO + share metadata
-  useEffect(() => {
-    const prevTitle = document.title
-    document.title = 'Finn Finds His Feet | A Liabri Studios Story'
-    const desc = document.querySelector('meta[name="description"]')
-    const prevDesc = desc ? desc.getAttribute('content') : null
-    const newDesc =
-      "An uplifting, inspirational story about discovering that a brain that works differently might just be your superpower. Finn Finds His Feet, on Amazon."
-    if (desc) desc.setAttribute('content', newDesc)
-    return () => {
-      document.title = prevTitle
-      if (desc && prevDesc !== null) desc.setAttribute('content', prevDesc)
-    }
-  }, [])
-
   return (
     <div style={{ background: 'var(--navy-deep)', minHeight: '100vh', position: 'relative', overflow: 'hidden' }}>
+      <Helmet>
+        <title>Finn Finds His Feet | A Story for Children with Coordination Difficulties</title>
+        <meta name="description" content="An uplifting picture book about discovering that a brain that works differently might just be your superpower. Finn Finds His Feet, for ages 4 to 8, on Amazon." />
+        <link rel="canonical" href="https://www.liabristudios.com/finn-finds-his-feet" />
+        <meta property="og:type" content="book" />
+        <meta property="og:url" content="https://www.liabristudios.com/finn-finds-his-feet" />
+        <meta property="og:title" content="Finn Finds His Feet | A Liabri Studios Story" />
+        <meta property="og:description" content="An uplifting picture book for children who feel different, about coordination difficulties and finding your superpower. Ages 4 to 8." />
+        <meta property="og:image" content="https://www.liabristudios.com/assets/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Finn Finds His Feet | A Liabri Studios Story" />
+        <meta name="twitter:description" content="An uplifting picture book for children who feel different. Ages 4 to 8." />
+      </Helmet>
       {/* Sticky mobile bottom CTA — biggest single conversion lift on ad landing pages */}
       <style>{`
         .finn-sticky-cta { display: none; }
