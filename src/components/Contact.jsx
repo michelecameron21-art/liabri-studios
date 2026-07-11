@@ -111,36 +111,8 @@ function Contact() {
           <p style={{ color: 'var(--text-dim)', marginBottom: '1.5rem', maxWidth: '32rem' }}>
             When new books get released, freebies for little readers, and other exciting news from Liabri Studios.
           </p>
-          {/* MailerLite embed placeholder. Michele to swap in her real action URL when the list is created. */}
-          <form
-            action="https://assets.mailerlite.com/jsonp/REPLACE/forms/REPLACE/subscribe"
-            method="post"
-            style={{
-              display: 'flex',
-              gap: '0.6rem',
-              flexWrap: 'wrap',
-              maxWidth: '460px',
-            }}
-          >
-            <input
-              type="email"
-              name="fields[email]"
-              required
-              placeholder="your@email.com"
-              style={{
-                flex: '1 1 220px',
-                background: 'rgba(6,18,43,0.6)',
-                color: 'var(--text-light)',
-                border: '1px solid rgba(232,180,72,0.3)',
-                borderRadius: 999,
-                padding: '0.85rem 1.2rem',
-                fontSize: '1rem',
-                outline: 'none',
-                fontFamily: 'inherit',
-              }}
-            />
-            <button className="btn" type="submit">Subscribe</button>
-          </form>
+          {/* MailerLite embedded form (account 2212478). Rendered by universal.js loaded in index.html head. */}
+          <div className="ml-embedded" data-form="e2PiJk" style={{ maxWidth: '460px' }} />
         </div>
       </div>
     </section>
