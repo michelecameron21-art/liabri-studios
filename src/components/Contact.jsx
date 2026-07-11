@@ -125,7 +125,7 @@ function Contact() {
               color: 'var(--gold-light)',
               maxWidth: '32rem',
             }}>
-              You are on the list. Welcome to the night sky.
+              You are on the list. Welcome to the Liabri family.
             </p>
           ) : (
             <>
