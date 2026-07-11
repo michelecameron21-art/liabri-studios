@@ -37,6 +37,12 @@ function Hero() {
         background:
           'linear-gradient(180deg, rgba(6,18,43,0.62) 0%, rgba(6,18,43,0.22) 38%, rgba(6,18,43,0.18) 62%, rgba(6,18,43,0.55) 100%)',
       }} />
+      {/* Soft shadow over the lower-right corner (blends the scene into night). */}
+      <div aria-hidden="true" style={{
+        position: 'absolute', inset: 0,
+        background:
+          'radial-gradient(ellipse 46% 55% at 84% 92%, rgba(4,11,28,0.92) 0%, rgba(4,11,28,0.5) 46%, transparent 78%)',
+      }} />
 
       <div className="starfield" aria-hidden="true" />
       <SkyDecor />

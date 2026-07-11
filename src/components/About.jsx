@@ -17,6 +17,18 @@ function About() {
         }}>
           Liabri Studios is an independent, faith-based children's storytelling studio. We tell stories rooted in Christian faith: about courage, kindness, the joy of knowing that being made different is something to be celebrated, and the truth that every child is seen, known, and loved by Jesus.
         </p>
+        <p style={{
+          fontSize: '1.05rem',
+          color: 'var(--gold-light)',
+          fontFamily: 'var(--font-serif)',
+          fontStyle: 'italic',
+          marginTop: '1.5rem',
+        }}>
+          Schools, churches and children's groups: we offer our books <strong>at cost</strong>.{' '}
+          <a href="#contact" style={{ color: 'var(--gold-light)', textDecoration: 'underline', textUnderlineOffset: '4px' }}>
+            Get in touch
+          </a>{' '}and we'll help you out.
+        </p>
       </div>
     </section>
   )

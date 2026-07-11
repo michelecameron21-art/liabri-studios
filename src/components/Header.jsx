@@ -173,11 +173,11 @@ function SmartLink({ to, children }) {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
-        fontSize: '0.76rem',
-        fontWeight: 500,
-        letterSpacing: '0.2em',
+        fontSize: '0.98rem',
+        fontWeight: 600,
+        letterSpacing: '0.16em',
         textTransform: 'uppercase',
-        color: hover ? 'var(--gold-light)' : 'var(--text-dim)',
+        color: hover ? '#FFE6A5' : 'var(--gold-light)',
         transition: 'color .15s',
       }}
     >
@@ -237,11 +237,11 @@ function NavDropdown({ label, anchor, items }) {
           display: 'inline-flex',
           alignItems: 'center',
           gap: '0.3rem',
-          fontSize: '0.76rem',
-          fontWeight: 500,
-          letterSpacing: '0.2em',
+          fontSize: '0.98rem',
+          fontWeight: 600,
+          letterSpacing: '0.16em',
           textTransform: 'uppercase',
-          color: open ? 'var(--gold-light)' : 'var(--text-dim)',
+          color: open ? '#FFE6A5' : 'var(--gold-light)',
           transition: 'color .15s',
           cursor: 'pointer',
         }}
