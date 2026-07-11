@@ -4,6 +4,7 @@ import Worlds from '../components/Worlds'
 import WorldDetail from '../components/WorldDetail'
 import About from '../components/About'
 import Scripture, { StarDivider } from '../components/Scripture'
+import Organisations from '../components/Organisations'
 import Contact from '../components/Contact'
 
 function Home() {
@@ -37,6 +38,7 @@ function Home() {
       <WorldDetail />
       <Scripture />
       <About />
+      <Organisations />
       <StarDivider />
       <Contact />
     </>
