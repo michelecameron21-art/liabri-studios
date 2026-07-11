@@ -51,7 +51,7 @@ function Hero() {
             willChange: 'transform, filter',
           }}
         />
-        <span className="kicker" style={{ marginBottom: '1.5rem' }}>A children's content producer</span>
+        <span className="kicker" style={{ marginBottom: '1.5rem' }}>A faith-based children's storytelling studio</span>
         <h1 style={{
           fontSize: 'clamp(2.4rem, 6vw, 4.8rem)',
           fontWeight: 500,
@@ -70,7 +70,7 @@ function Hero() {
           margin: '0 auto 2.5rem',
           lineHeight: 1.6,
         }}>
-          Children's stories about being brave, being different, and the friends you meet along the way.
+          Faith-filled stories for children, about courage, wonder, being different, and knowing they are deeply loved by Jesus.
         </p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
           <a className="btn" href="#worlds">Explore the worlds</a>

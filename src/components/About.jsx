@@ -15,7 +15,7 @@ function About() {
           color: 'var(--text-dim)',
           lineHeight: 1.8,
         }}>
-          Liabri Studios is an independent children's content producer. We strive to tell stories that are inspiring and uplifting for children. Stories about courage, bravery, the joy of knowing that being different is something to be celebrated, and the power of teamwork and friendship.
+          Liabri Studios is an independent, faith-based children's storytelling studio. We tell stories rooted in Christian faith: about courage, kindness, the joy of knowing that being made different is something to be celebrated, and the truth that every child is seen, known, and loved by Jesus.
         </p>
       </div>
     </section>

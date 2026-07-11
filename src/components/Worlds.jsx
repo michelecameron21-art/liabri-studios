@@ -11,7 +11,7 @@ function Worlds() {
           <span className="kicker">Three worlds, one studio</span>
           <h2>Step into a Liabri world.</h2>
           <p className="lede" style={{ margin: '1rem auto 0' }}>
-            Every Liabri story is built to inspire children by celebrating what makes them unique, by giving them courage, and by showing them that Jesus loves them. Tap a world to meet the books inside.
+            Every Liabri story is rooted in faith, celebrating what makes each child unique, giving them courage, and reminding them that Jesus sees them and loves them. Tap a world to step inside.
           </p>
         </div>
 
