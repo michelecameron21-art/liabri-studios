@@ -41,6 +41,49 @@ function Hero() {
       <div className="starfield" aria-hidden="true" />
       <SkyDecor />
 
+      {/* Animated guiding star: gently drifts and twinkles in the open sky
+          (upper-left), where the caravan is headed. */}
+      <div aria-hidden="true" style={{
+        position: 'absolute',
+        left: 'clamp(8%, 12vw, 16%)',
+        top: 'clamp(12%, 15vh, 20%)',
+        width: 'clamp(64px, 8vw, 120px)',
+        height: 'clamp(64px, 8vw, 120px)',
+        zIndex: 1,
+        pointerEvents: 'none',
+        animation: 'guideDrift 13s ease-in-out infinite',
+      }}>
+        <div style={{
+          position: 'absolute', inset: '-45%',
+          background: 'radial-gradient(circle, rgba(242,201,105,0.5) 0%, rgba(232,180,72,0.14) 38%, transparent 70%)',
+          animation: 'guideGlow 5s ease-in-out infinite',
+        }} />
+        <svg viewBox="0 0 100 100" style={{
+          position: 'relative', width: '100%', height: '100%',
+          animation: 'guideTwinkle 4.5s ease-in-out infinite',
+          transformOrigin: 'center',
+          filter: 'drop-shadow(0 0 14px rgba(242,201,105,0.85))',
+        }}>
+          <path d="M50 1 L57 40 Q58 42 60 43 L99 50 L60 57 Q58 58 57 60 L50 99 L43 60 Q42 58 40 57 L1 50 L40 43 Q42 42 43 40 Z" fill="#F2C969"/>
+          <path d="M50 20 L54 44 L78 50 L54 56 L50 80 L46 56 L22 50 L46 44 Z" fill="#FFF4D6" opacity="0.92"/>
+        </svg>
+      </div>
+
+      <style>{`
+        @keyframes guideDrift {
+          0%, 100% { transform: translate(0, 0); }
+          50%      { transform: translate(-12px, 10px); }
+        }
+        @keyframes guideTwinkle {
+          0%, 100% { transform: scale(1); opacity: 0.92; }
+          50%      { transform: scale(1.14); opacity: 1; }
+        }
+        @keyframes guideGlow {
+          0%, 100% { opacity: 0.6; }
+          50%      { opacity: 1; }
+        }
+      `}</style>
+
       <div className="container" style={{ position: 'relative', textAlign: 'center', zIndex: 2 }}>
         <img
           src="/assets/liabri-logo.png"
