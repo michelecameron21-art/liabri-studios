@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { LegalHero } from './Privacy'
 
 const LAST_UPDATED = '26 May 2026'
-const CONTACT_EMAIL = 'hello@liabristudios.com'
 
 function Terms() {
   return (
@@ -31,7 +30,7 @@ function Terms() {
           <h2>About us</h2>
           <p>
             liabristudios.com is operated by Michele Cameron, trading as Liabri Studios, a sole trader based in the United Kingdom.
-            You can contact us at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+            You can reach us through the <Link to="/#contact">contact form</Link> on our website.
           </p>
 
           <h2>Use of the site</h2>
@@ -106,7 +105,7 @@ function Terms() {
 
           <h2>Contact</h2>
           <p>
-            Questions about these terms: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+            Questions about these terms: reach us through the <Link to="/#contact">contact form</Link> on our website.
           </p>
         </div>
       </article>

@@ -19,6 +19,32 @@ const inputStyle = {
 
 function Contact() {
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
+  const [subStatus, setSubStatus] = useState('idle') // idle | sending | sent | error
+  const [subError, setSubError] = useState('')
+
+  async function handleSubscribe(e) {
+    e.preventDefault()
+    setSubStatus('sending')
+    setSubError('')
+    const email = new FormData(e.currentTarget).get('email')
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+      if (res.ok) {
+        setSubStatus('sent')
+      } else {
+        const data = await res.json().catch(() => ({}))
+        setSubError(data.error || 'Something went wrong. Please try again.')
+        setSubStatus('error')
+      }
+    } catch {
+      setSubError('Something went wrong. Please try again.')
+      setSubStatus('error')
+    }
+  }
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -111,11 +137,49 @@ function Contact() {
           <p style={{ color: 'var(--text-dim)', marginBottom: '1.5rem', maxWidth: '32rem' }}>
             When new books get released, freebies for little readers, and other exciting news from Liabri Studios.
           </p>
-          {/* MailerLite official embed (account 2212478, form e2PiJk). Rendered via
-              dangerouslySetInnerHTML so React never reconciles the DOM that universal.js
-              injects into it (that reconciliation is what left it blank before). Styled to
-              match the site in index.css under `.ml-form-embedContainer`. */}
-          <div dangerouslySetInnerHTML={{ __html: '<div class="ml-embedded" data-form="e2PiJk"></div>' }} />
+          {/* Native subscribe form -> /api/subscribe -> MailerLite API. Fully styled + reliable. */}
+          {subStatus === 'sent' ? (
+            <p style={{
+              fontFamily: 'var(--font-serif)',
+              fontStyle: 'italic',
+              fontSize: 'clamp(1.15rem, 2vw, 1.45rem)',
+              color: 'var(--gold-light)',
+              maxWidth: '32rem',
+            }}>
+              You are on the list. Welcome to the Liabri family.
+            </p>
+          ) : (
+            <form
+              onSubmit={handleSubscribe}
+              style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', maxWidth: '460px' }}
+            >
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="your@email.com"
+                style={{
+                  flex: '1 1 220px',
+                  background: 'rgba(6,18,43,0.6)',
+                  color: 'var(--text-light)',
+                  border: '1px solid rgba(232,180,72,0.3)',
+                  borderRadius: 999,
+                  padding: '0.85rem 1.2rem',
+                  fontSize: '1rem',
+                  outline: 'none',
+                  fontFamily: 'inherit',
+                }}
+              />
+              <button className="btn" type="submit" disabled={subStatus === 'sending'}>
+                {subStatus === 'sending' ? 'Joining…' : 'Subscribe'}
+              </button>
+              {subStatus === 'error' && (
+                <span style={{ flexBasis: '100%', color: '#ffb4b4', fontSize: '0.95rem' }}>
+                  {subError}
+                </span>
+              )}
+            </form>
+          )}
         </div>
       </div>
     </section>

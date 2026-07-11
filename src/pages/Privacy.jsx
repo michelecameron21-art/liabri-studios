@@ -2,7 +2,6 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 
 const LAST_UPDATED = '26 May 2026'
-const CONTACT_EMAIL = 'hello@liabristudios.com'
 
 function Privacy() {
   return (
@@ -34,7 +33,7 @@ function Privacy() {
             through this website.
           </p>
           <p>
-            You can contact us at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> for any privacy-related questions.
+            You can reach us through the <Link to="/#contact">contact form</Link> on our website for any privacy-related questions.
           </p>
 
           <h2>What personal data we collect</h2>
@@ -113,8 +112,8 @@ function Privacy() {
             <li>Withdraw consent at any time</li>
           </ul>
           <p>
-            To exercise any of these rights, email <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. We will respond within
-            one month.
+            To exercise any of these rights, get in touch through the <Link to="/#contact">contact form</Link> on our website. We will
+            respond within one month.
           </p>
           <p>
             You also have the right to complain to the UK Information Commissioner's Office (ICO) if you believe we have not
@@ -142,7 +141,7 @@ function Privacy() {
 
           <h2>Contact</h2>
           <p>
-            Questions, requests, complaints, or anything else: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+            Questions, requests, complaints, or anything else: reach us through the <Link to="/#contact">contact form</Link> on our website.
           </p>
         </div>
       </article>
