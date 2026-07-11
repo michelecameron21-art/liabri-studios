@@ -15,28 +15,31 @@ function Hero() {
         'radial-gradient(ellipse at 80% 20%, rgba(26,43,85,0.6) 0%, transparent 55%),' +
         'linear-gradient(180deg, #06122B 0%, #0B1A3D 60%, #1A2B55 100%)',
     }}>
-      <div className="starfield" aria-hidden="true" />
-      <SkyDecor />
-
-      {/* Cats-on-hill atmospheric backdrop, bottom of hero only */}
+      {/* Three wise men following the star: full-bleed night-sky backdrop */}
       <img
-        src="/assets/liabri-hero-clean.jpg"
+        src="/assets/liabri-hero-wisemen.jpg"
         alt=""
         aria-hidden="true"
         style={{
           position: 'absolute',
-          left: 0, right: 0, bottom: 0,
+          inset: 0,
           width: '100%',
-          height: '55%',
+          height: '100%',
           objectFit: 'cover',
-          objectPosition: 'center bottom',
-          opacity: 0.7,
-          maskImage:
-            'linear-gradient(to top, black 30%, transparent 100%)',
-          WebkitMaskImage:
-            'linear-gradient(to top, black 30%, transparent 100%)',
+          objectPosition: 'center 40%',
+          opacity: 0.82,
         }}
       />
+      {/* Navy scrim: darkens top (behind logo) and base (behind buttons) for legibility,
+          while letting the guiding star's warm glow show through the middle. */}
+      <div aria-hidden="true" style={{
+        position: 'absolute', inset: 0,
+        background:
+          'linear-gradient(180deg, rgba(6,18,43,0.62) 0%, rgba(6,18,43,0.22) 38%, rgba(6,18,43,0.18) 62%, rgba(6,18,43,0.55) 100%)',
+      }} />
+
+      <div className="starfield" aria-hidden="true" />
+      <SkyDecor />
 
       <div className="container" style={{ position: 'relative', textAlign: 'center', zIndex: 2 }}>
         <img

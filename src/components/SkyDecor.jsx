@@ -130,8 +130,7 @@ function SkyDecor() {
       <Nebula x="55%"  y="-5%"  w="44rem" h="32rem" color="rgba(99,143,200,0.6)" opacity={0.13} />
       <Nebula x="20%"  y="35%"  w="60rem" h="40rem" color="rgba(60,90,160,0.55)" opacity={0.10} />
 
-      {/* The moon */}
-      <Crescent x="78%" y="9%" size={92} />
+      {/* Moon removed: the hero image's guiding star is the single light source. */}
 
       {/* Big sparkle stars (golden, twinkling) */}
       <Sparkle size={28} x="11%" y="13%" delay={0} />
