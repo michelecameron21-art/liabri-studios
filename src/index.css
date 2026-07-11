@@ -202,35 +202,41 @@ img { max-width: 100%; display: block; }
   font-size: 0.92em;
 }
 
-/* ---- MailerLite embed: restyle to match the gold-on-navy theme ---- */
-.ml-form-embedContainer,
-.ml-form-embedContainer * {
+/* ---- MailerLite embed: restyle to match the gold-on-navy theme ----
+   Anchored to #contact so these rules outrank MailerLite's own class-level
+   !important styles (which load after ours). */
+#contact .ml-form-embedContainer,
+#contact .ml-form-embedContainer * {
   box-sizing: border-box;
   font-family: inherit !important;
 }
-.ml-form-embedContainer {
-  max-width: 460px;
+#contact .ml-form-embedContainer {
+  max-width: 460px !important;
   background: transparent !important;
 }
-.ml-form-embedWrapper,
-.ml-form-embedBody,
-.ml-form-embedContent {
+#contact .ml-form-embedWrapper,
+#contact .ml-form-embedBody,
+#contact .ml-form-embedContent,
+#contact .ml-form-align-left,
+#contact .ml-form-formContent {
   background: transparent !important;
   border: none !important;
   padding: 0 !important;
   margin: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
 }
-/* Hide MailerLite's own title/description; the page already shows our styled copy above. */
-.ml-form-embedContent h4,
-.ml-form-embedContent p {
+/* Hide MailerLite's own title/description; the page shows our styled copy above. */
+#contact .ml-form-embedContent {
   display: none !important;
 }
-.ml-form-embedContainer .ml-form-fieldRow,
-.ml-form-embedContainer .ml-form-formContent {
-  margin-bottom: 0.6rem !important;
+#contact .ml-form-embedContainer .ml-form-fieldRow {
+  margin: 0 0 0.6rem 0 !important;
+  padding: 0 !important;
 }
-.ml-form-embedContainer input.form-control,
-.ml-form-embedContainer input[type="email"] {
+#contact .ml-form-embedContainer input,
+#contact .ml-form-embedContainer input.form-control,
+#contact .ml-form-embedContainer input[type="email"] {
   width: 100% !important;
   background: rgba(6,18,43,0.6) !important;
   color: var(--text-light) !important;
@@ -241,32 +247,40 @@ img { max-width: 100%; display: block; }
   height: auto !important;
   box-shadow: none !important;
 }
-.ml-form-embedContainer input.form-control::placeholder {
+#contact .ml-form-embedContainer input::placeholder {
   color: var(--text-dim-strong) !important;
+  opacity: 1 !important;
 }
-.ml-form-embedContainer .ml-form-embedSubmit button,
-.ml-form-embedContainer button.primary {
+#contact .ml-form-embedContainer .ml-form-embedSubmit {
+  margin: 0 !important;
+}
+#contact .ml-form-embedContainer .ml-form-embedSubmit button,
+#contact .ml-form-embedContainer button.primary,
+#contact .ml-form-embedContainer button[type="submit"] {
+  width: 100% !important;
   background: var(--gold) !important;
   color: var(--navy-deep) !important;
   border: none !important;
   border-radius: 999px !important;
-  font-family: var(--font-serif, inherit) !important;
+  font-family: var(--font-serif) !important;
   font-weight: 700 !important;
+  font-size: 1rem !important;
   padding: 0.85rem 1.8rem !important;
+  height: auto !important;
   cursor: pointer;
   box-shadow: none !important;
   transition: background .15s;
 }
-.ml-form-embedContainer .ml-form-embedSubmit button:hover,
-.ml-form-embedContainer button.primary:hover {
+#contact .ml-form-embedContainer .ml-form-embedSubmit button:hover,
+#contact .ml-form-embedContainer button.primary:hover {
   background: var(--gold-light) !important;
 }
 /* Success + error messages MailerLite swaps in after submit */
-.ml-form-successBody,
-.ml-form-embedSubmitLoad,
-.ml-form-embedContainer .ml-form-successContent h4,
-.ml-form-embedContainer .ml-form-successContent p {
+#contact .ml-form-successBody,
+#contact .ml-form-embedContainer .ml-form-successContent h4,
+#contact .ml-form-embedContainer .ml-form-successContent p {
   color: var(--gold-light) !important;
   background: transparent !important;
-  font-family: var(--font-serif, inherit) !important;
+  border: none !important;
+  font-family: var(--font-serif) !important;
 }
