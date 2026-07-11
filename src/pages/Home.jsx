@@ -13,7 +13,7 @@ function Home() {
       <Helmet>
         <title>Liabri Studios | Faith-Based Children's Stories About Courage, Wonder & Being Loved</title>
         <meta name="description" content="Liabri Studios creates faith-based children's stories about courage, wonder, being different, and the truth that every child is seen and loved by Jesus." />
-        <meta name="keywords" content="children's picture books, picture books for ages 4-8, books about being different, dyspraxia picture book, DCD children's book, Christian picture books for kids, books about courage for children, Yorkshire terrier children's book, independent children's book publisher, Michele Cameron author, Liabri Studios" />
+        <meta name="keywords" content="faith-based children's books, Christian picture books for kids, Christian children's books, Bible stories for children, faith-based picture books, picture books for ages 4-8, Christian bedtime stories, books about being different, Sunday school picture books, church children's books, Jesus loves children book, Christian books for schools and churches, Michele Cameron author, Liabri Studios" />
         <link rel="canonical" href="https://www.liabristudios.com/" />
 
         <meta property="og:type" content="website" />

@@ -2,19 +2,52 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { posts } from '../lib/posts'
 
+const blogJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  '@id': 'https://www.liabristudios.com/blog#blog',
+  name: 'Liabri Studios Blog',
+  description: "Faith-based reading guides and stories from Liabri Studios: Christian picture books for children aged 4 to 8 about faith, courage and being different.",
+  url: 'https://www.liabristudios.com/blog',
+  inLanguage: 'en-GB',
+  publisher: { '@id': 'https://www.liabristudios.com/#organization' },
+  blogPost: posts.map((p) => ({
+    '@type': 'BlogPosting',
+    headline: p.title,
+    description: p.description,
+    url: `https://www.liabristudios.com/blog/${p.slug}`,
+    datePublished: p.date,
+  })),
+}
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.liabristudios.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.liabristudios.com/blog' },
+  ],
+}
+
 function BlogIndex() {
   return (
     <>
       <Helmet>
-        <title>Blog | Liabri Studios — Children's Books, Bravery, Faith & Being Different</title>
-        <meta name="description" content="Stories, reading guides and resources from Liabri Studios. Picture books for children aged 4 to 8 about bravery, being different, and faith." />
+        <title>Faith-Based Children's Book Blog | Liabri Studios</title>
+        <meta name="description" content="Faith-based reading guides and stories from Liabri Studios: Christian picture books for children aged 4 to 8 about faith, courage, and being different. For families, Sunday schools, and bedtime." />
         <link rel="canonical" href="https://www.liabristudios.com/blog" />
-        <meta property="og:title" content="Liabri Studios Blog" />
-        <meta property="og:description" content="Stories, reading guides and resources from Liabri Studios." />
+        <meta property="og:title" content="Faith-Based Children's Book Blog | Liabri Studios" />
+        <meta property="og:description" content="Faith-based reading guides and stories: Christian picture books for children aged 4 to 8 about faith, courage, and being different." />
         <meta property="og:url" content="https://www.liabristudios.com/blog" />
         <meta property="og:image" content="https://www.liabristudios.com/assets/og-image.jpg" />
+        <meta property="og:image:alt" content="Liabri Studios" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Faith-Based Children's Book Blog | Liabri Studios" />
+        <meta name="twitter:description" content="Christian picture books and reading guides for children aged 4 to 8." />
+        <meta name="twitter:image" content="https://www.liabristudios.com/assets/og-image.jpg" />
+        <script type="application/ld+json">{JSON.stringify(blogJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
       </Helmet>
 
       <section style={{

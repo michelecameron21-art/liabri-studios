@@ -39,8 +39,19 @@ function BlogPost() {
       },
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    isPartOf: { '@id': 'https://www.liabristudios.com/blog#blog' },
     keywords: post.keywords,
     inLanguage: 'en-GB',
+  }
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.liabristudios.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.liabristudios.com/blog' },
+      { '@type': 'ListItem', position: 3, name: post.title, item: url },
+    ],
   }
 
   return (
@@ -66,6 +77,7 @@ function BlogPost() {
         <meta name="twitter:image" content={ogImage} />
 
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
       </Helmet>
 
       <section style={{

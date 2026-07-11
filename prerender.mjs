@@ -44,20 +44,37 @@ for (const route of routes) {
 }
 
 // Sitemap — includes the home, Finn landing page, blog index, every post and
-// the legal pages, all on the canonical www host.
+// the legal pages, all on the canonical www host. Book covers and post images
+// are included as image sitemap entries for richer indexing.
 const today = new Date().toISOString().slice(0, 10)
+const xe = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' }[c]))
+const abs = (u) => (u && u.startsWith('http') ? u : `${SITE}${u}`)
 const urls = [
-  { loc: `${SITE}/`, pr: '1.0', cf: 'weekly' },
-  { loc: `${SITE}/finn-finds-his-feet`, pr: '0.9', cf: 'monthly' },
+  { loc: `${SITE}/`, pr: '1.0', cf: 'weekly', images: [
+    { loc: `${SITE}/assets/og-image.jpg`, title: 'Liabri Studios' },
+    { loc: `${SITE}/assets/finn-cover.jpg`, title: 'Finn Finds His Feet' },
+    { loc: `${SITE}/assets/fh-cover.jpg`, title: 'The Brave River Rescue' },
+    { loc: `${SITE}/assets/sbj-cover.jpg`, title: "Eli's Gift" },
+  ] },
+  { loc: `${SITE}/finn-finds-his-feet`, pr: '0.9', cf: 'monthly', images: [
+    { loc: `${SITE}/assets/finn-cover.jpg`, title: 'Finn Finds His Feet' },
+  ] },
   { loc: `${SITE}/blog`, pr: '0.8', cf: 'weekly' },
-  ...posts.map((p) => ({ loc: `${SITE}/blog/${p.slug}`, pr: '0.7', cf: 'monthly' })),
+  ...posts.map((p) => ({
+    loc: `${SITE}/blog/${p.slug}`, pr: '0.7', cf: 'monthly', lastmod: p.date,
+    images: p.ogImage ? [{ loc: abs(p.ogImage), title: p.title }] : [],
+  })),
   { loc: `${SITE}/privacy`, pr: '0.3', cf: 'yearly' },
   { loc: `${SITE}/terms`, pr: '0.3', cf: 'yearly' },
   { loc: `${SITE}/cookies`, pr: '0.3', cf: 'yearly' },
 ]
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map((u) => `  <url><loc>${u.loc}</loc><lastmod>${today}</lastmod><changefreq>${u.cf}</changefreq><priority>${u.pr}</priority></url>`).join('\n')}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${urls.map((u) => {
+  const imgs = (u.images || []).map((im) => `\n    <image:image><image:loc>${xe(im.loc)}</image:loc><image:title>${xe(im.title)}</image:title></image:image>`).join('')
+  return `  <url><loc>${u.loc}</loc><lastmod>${u.lastmod || today}</lastmod><changefreq>${u.cf}</changefreq><priority>${u.pr}</priority>${imgs}${imgs ? '\n  ' : ''}</url>`
+}).join('\n')}
 </urlset>
 `
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), sitemap)
