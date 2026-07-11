@@ -130,7 +130,7 @@ function Contact() {
         {/* Subscribe */}
         <div>
           <Star size={28} color="var(--gold)" fill="var(--gold)" style={{ marginBottom: '0.5rem', filter: 'drop-shadow(0 0 12px rgba(232,180,72,0.55))' }} />
-          <span className="kicker">Stay in the night sky</span>
+          <span className="kicker">Join the family</span>
           <h2 style={{ fontSize: 'clamp(1.55rem, 3vw, 2.2rem)', marginBottom: '0.6rem' }}>
             Be in the know.
           </h2>

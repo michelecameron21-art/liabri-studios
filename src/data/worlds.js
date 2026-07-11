@@ -12,7 +12,7 @@ export const worlds = [
       subtitle: 'A Story for Children with Coordination Difficulties',
       blurb: [
         "Finn drops things. His toast. His pencil. His entire lunch tray in front of everyone.",
-        "And when the ball hits him right on the nose in PE, all he wants to do is disappear.",
+        "And when the ball hits him right on the nose in gym class, all he wants to do is disappear.",
         "But when Finn meets Rosa, the school's occupational therapist, he realises his brain isn't broken. It just works differently.",
         "His brain sends signals in zigzags. Some things will always be a little harder. But his brain sees what everyone else walks straight past. Like the spider spinning a web in the corner of the library. Or noticing that someone is sad. Or that it is about to rain before anyone else does. He can see how things work and fit together in ways nobody else can.",
         "When Finn discovers his strengths and understands why he is different, everything changes. He appreciates how his brain works and he wouldn't change it for the world.",
